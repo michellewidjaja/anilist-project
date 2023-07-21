@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, CardContent, 
+import { Card, CardContent, CardMedia,
     Link, PageTitle } from '../globalStyles';
 import { css } from '@emotion/react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -52,7 +52,10 @@ export default function CollectionDetail() {
             <PageTitle>Collection {selectedCollection}</PageTitle>
             {collectionList?.map((v: any, k: string) => {
                 return (
-                    <Card key={k}>
+                    <Card key={k} gridColumns="30% 70%" css={css`height: 80px`}>
+                        <CardMedia position="left">
+                            <img src={v.coverImage} alt="cover" loading="lazy" />
+                        </CardMedia>
                         <CardContent css={css`
                             display: flex;
                             align-items: center;

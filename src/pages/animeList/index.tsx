@@ -50,7 +50,7 @@ export default function AnimeList() {
             <AnimeListContainer>
                 {
                     animeListMedia?.map((v: any,k: number) => (
-                        <Card withImg key={k} onClick={() => goToDetailPage(v.id)}>
+                        <Card gridColumns="30% 70%" key={k} onClick={() => goToDetailPage(v.id)}>
                             <CardMedia position="left">
                                 <img src={v.coverImage.medium} alt="cover image" />
                             </CardMedia>

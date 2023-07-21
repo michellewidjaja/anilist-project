@@ -38,7 +38,7 @@ export default function CollectionList() {
                     const showEmptyImg = totalItem ? (totalPreviewImg - totalItem) : 1;
 
                     return (
-                        <Card key={k}>
+                        <Card key={`listCollection-${k}`}>
                             <CardMedia css={css`
                                 display: grid;
                                 background: #e5e5e5;
@@ -49,7 +49,7 @@ export default function CollectionList() {
                                     parsedList[k]?.slice(0, 4)
                                     .map((v2: any, k2: string) => {
                                         return (
-                                            <img key={k2} src={v2.coverImage} alt="cover"
+                                            <img key={`listImg-${k2}`} src={v2.coverImage} alt="cover"
                                                 loading="lazy"
                                                 css={css`
                                                     width: 100%;
@@ -62,12 +62,13 @@ export default function CollectionList() {
                                 }
                                 {
                                     showEmptyImg > 0 && 
-                                        Array(showEmptyImg).fill('')?.map((k3: string) => (
-                                            <img key={k3}src={blankImage} alt="cover"
+                                        Array.from(Array(showEmptyImg).keys())
+                                        ?.map((k3: number) => (
+                                            <img key={`imgEmpty-${k3}`}src={blankImage} alt="cover"
                                                 loading="lazy"
                                                 css={css`
                                                     width: 100%;
-                                                    height: 70%!important;
+                                                    height: ${totalItem < 2 ? '160px' : '80px'}!important;
                                                     object-fit: contain!important;
                                                 `} 
                                             />
@@ -81,7 +82,7 @@ export default function CollectionList() {
                             `}>
                                 <div css={css`font-size: 18px;`}>{k}</div>
                                 <div>
-                                    <AddEditCollection action="edit" />
+                                    <AddEditCollection action="edit" collectionData={k} />
                                     <FontAwesomeIcon icon={faEye} onClick={() => { goToCollectionDetail(k)}} />
                                 </div>
                             </CardContent>

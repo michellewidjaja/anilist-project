@@ -104,7 +104,8 @@ export default function AddToCollection(props: Props) {
                                 type="text"
                                 placeholder="Collection Name"
                                 label="Collection Name"
-                                onChange={(e: { target: { value: string }; }) => setCollectionName(e.target.value)} value={collectionName}
+                                onChange={(e: { target: { value: string }; }) => setCollectionName(e.target.value)} 
+                                value={collectionName}
                             />
                             { message && <Message type={message.type}>{message.message}</Message> }
                         </CardContent>

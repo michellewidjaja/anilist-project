@@ -25,7 +25,7 @@ export const Badge = styled.span`
 `;
 
 type CardProps = {
-    withImg?: Boolean,
+    gridColumns?: string,
     variant?: string
 }
 
@@ -35,7 +35,7 @@ export const Card = styled.div<CardProps>`
     box-shadow: 0px 2px 8px -1px #aeb2be;
     background-color: #fff;
     display: grid;
-    grid-template-columns: ${props => props.withImg ? '30% 70%' : '100%'};
+    grid-template-columns: ${props => props.gridColumns ? props.gridColumns : '100%' };
     margin: 10px 0;
 
     ${props => props.variant === 'gray' && `

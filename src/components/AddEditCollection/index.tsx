@@ -9,9 +9,11 @@ import { useNavigate } from 'react-router-dom';
 
 
 import Input from '../Input';
+import { parse } from '@babel/core';
 
 interface Props {
-    action?: "add" | "edit"
+    action?: "add" | "edit",
+    collectionData?: string
 }
 
 interface Message {
@@ -20,13 +22,13 @@ interface Message {
 }
 
 export default function AddEditCollection(props: Props) {
-    const { action } = props;
+    const { action, collectionData } = props;
     const navigate = useNavigate();
     const getCollectionList = localStorage.getItem('collectionList') || '';
     const parsedList = getCollectionList ? JSON.parse(getCollectionList) : {};
 
     const [openModal, setOpenModal] = useState(false);
-    const [collectionName, setCollectionName] = useState('');
+    const [collectionName, setCollectionName] = useState(collectionData || '');
     const [message, setMessage] = useState<Message>({ message: '' });
     const isEdit = action === 'edit';
 
@@ -54,10 +56,27 @@ export default function AddEditCollection(props: Props) {
 
         console.log(checkCollectionNameExist());
 
-        const collection = {
-            ...parsedList,
-            [collectionName] : []
+        let collection;
+        if (action === 'add') {
+            collection = {
+                ...parsedList,
+                [collectionName] : []
+            }
+        } else {
+            // TODO: EDIT
+            let currentData;
+            if (collectionData) {
+                currentData = parsedList[collectionData];
+                delete parsedList[collectionData];
+            }
+
+            console.log(currentData);
+            collection  = {
+                ...parsedList,
+                [collectionName]: currentData
+            }
         }
+        console.log('collection', collection);
 
         if (checkCollectionNameExist()) {
             setMessage({ message: `Duplicate name ${collectionName}`, type: 'error'})
@@ -68,6 +87,8 @@ export default function AddEditCollection(props: Props) {
         }
         setCollectionName('');
     }
+
+    console.log('parsed', parsedList);
 
     return (
         <>  
@@ -97,7 +118,8 @@ export default function AddEditCollection(props: Props) {
                                 type="text"
                                 placeholder="Collection Name"
                                 label="Collection Name"
-                                onChange={(e: { target: { value: string }; }) => setCollectionName(e.target.value)} value={collectionName}
+                                onChange={(e: { target: { value: string }; }) => setCollectionName(e.target.value)} 
+                                value={collectionName}
                             />
                             { message && <Message type={message.type}>{message.message}</Message> }
                         </CardContent>
