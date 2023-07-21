@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent, 
-    PageTitle, Link, ListItem, Item, Modal, 
-    ModalContent, Button, ErrorMessage, Subtitle } from '../../pages/globalStyles';
+    PageTitle, ListItem, Item, Modal, 
+    ModalContent, Button, Message, Subtitle } from '../../pages/globalStyles';
 import { css } from '@emotion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -12,11 +12,8 @@ interface CollectionListItem {
     collectionName: string,
     description: string,
     animeId: string,
-    animeTitle: string
-}
-
-interface CollectionList {
-    [key: string]: CollectionListItem[]
+    animeTitle: string,
+    coverImage?: string    
 }
 
 interface Props {
@@ -25,36 +22,38 @@ interface Props {
     }
 }
 
-export default function AddCollection(props: Props) {
+interface Message {
+    type?: string,
+    message: string
+}
+
+export default function AddToCollection(props: Props) {
     const { detail } = props;
     const getCollectionList = localStorage.getItem('collectionList') || '';
     const parsedList = getCollectionList ? JSON.parse(getCollectionList) : {};
 
     const [openModal, setOpenModal] = useState(false);
     const [collectionName, setCollectionName] = useState('');
-    const [collectionList, setCollectionList] = useState<CollectionList>(parsedList);
-    const [errorMsg, setErrorMsg] = useState('');
+    const [message, setMessage] = useState<Message>({ message: '' });
 
     const handleOpenModal = () => {
+        setCollectionName('');
+        setMessage({ message: ''});
         setOpenModal(!openModal);
     }
 
     const checkIfExistInCollection = () => {
         const existingList = parsedList[collectionName] ? parsedList[collectionName] : [];
-
-        existingList.forEach((v: CollectionListItem, k: string) => { 
-            if(v?.animeTitle === detail.title.romaji) {
-                setErrorMsg(`Duplicate name ${collectionName}`)
-                return false;
-            }
-        });
+        const checkExist = existingList.find((v: CollectionListItem, k: string) => v?.animeTitle === detail.title.romaji);
+        
+        return checkExist?.animeTitle ? true : false;
     }
 
     const handleSaveCollection = () => {
-        setErrorMsg('');
+        setMessage({ message: ''});
 
         if (collectionName === '') {
-            setErrorMsg('Please fill in the collection name');
+            setMessage({ message: 'Please fill in the collection name', type: 'error'});
             return false;
         }
 
@@ -63,19 +62,24 @@ export default function AddCollection(props: Props) {
             {
                 collectionName: collectionName,
                 animeId: detail.id,
-                animeTitle: detail.title.romaji
+                animeTitle: detail.title.romaji,
+                coverImage: detail.coverImage.medium
             }
         ]
 
-        checkIfExistInCollection();
-        
         const collection = {
             ...parsedList,
             [collectionName] : newItem
         }
 
-        setCollectionList(collection)
-        localStorage.setItem('collectionList', JSON.stringify(collection))
+        if (checkIfExistInCollection()) {
+            setMessage({ message: `Duplicate name ${collectionName}`, type: 'error'})
+        } else {
+            localStorage.setItem('collectionList', JSON.stringify(collection));
+            setMessage({ message: `Succesfully added to ${collectionName} collection` });
+            handleOpenModal();
+        }
+        setCollectionName('');
     }
 
     return (
@@ -102,7 +106,7 @@ export default function AddCollection(props: Props) {
                                 label="Collection Name"
                                 onChange={(e: { target: { value: string }; }) => setCollectionName(e.target.value)} value={collectionName}
                             />
-                            { errorMsg && <ErrorMessage>{errorMsg}</ErrorMessage> }
+                            { message && <Message type={message.type}>{message.message}</Message> }
                         </CardContent>
                     </Card>
                     

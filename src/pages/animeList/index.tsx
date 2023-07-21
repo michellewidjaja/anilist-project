@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { useNavigate } from "react-router-dom";
 import { css } from '@emotion/react';

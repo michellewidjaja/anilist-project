@@ -57,15 +57,23 @@ export const CardContent = styled.div`
     padding: 12px;
 `;
 
-export const CardMedia = styled.div`
+type CardMediaProps = {
+    position?: 'top' | 'left'
+}
+
+export const CardMedia = styled.div<CardMediaProps>`
     height: 100%;
     border-radius: 8px;
 
-    img {
-        background-size: cover;
+    img:first-child {
+        object-fit: cover;
         border-radius: 8px 0px 0 8px;
         height: 100%;
         width: 100%;
+
+        ${props => props.position === 'top' && `
+            border-radius: 8px 8px 0px 0px;
+        `}
     }
 `;
 
@@ -196,11 +204,19 @@ export const InputWrapper = styled.div`
     }
 `;
 
-export const ErrorMessage = styled.div`
-    color: #e84118;
+type MessageProps = {
+    type?: string
+}
+
+export const Message = styled.div<MessageProps>`
+    color: #27ae60;
     font-size: 14px;
     margin: 5px 0;
     font-weight: normal;
+
+    ${props => props.type === 'error' && `
+        color: #e84118;
+    `}
 `
 
 export const Label = styled.div`

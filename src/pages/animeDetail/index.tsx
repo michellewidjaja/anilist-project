@@ -9,7 +9,7 @@ import { GET_ANIME_DETAIL } from '../../graphql/getAnimeDetail';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-import AddCollection from '../../components/AddCollection';
+import AddToCollection from '../../components/AddToCollection';
 
 export default function AnimeDetail() {
     const navigate = useNavigate();
@@ -51,7 +51,7 @@ export default function AnimeDetail() {
                         align-items: center
                     `}>
                         {detail.title.romaji}
-                        <AddCollection detail={detail} />
+                        <AddToCollection detail={detail} />
                     </CardTitle>
                     <BadgeContainer>
                         {detail.genres.map((v: string, k: number) => (

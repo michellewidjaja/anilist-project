@@ -14,6 +14,7 @@ export const GET_ANIME_DETAIL = gql`
             episodes
             coverImage {
                 large
+                medium
             }
             bannerImage
             genres
