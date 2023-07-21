@@ -75,7 +75,7 @@ export default function AddEditCollection(props: Props) {
                 isEdit ? (
                     <FontAwesomeIcon icon={faPen} onClick={() => setOpenModal(true)} />
                 ) : (
-                    <Button variant="invert" onClick={() => setOpenModal(true)}
+                    <Button onClick={() => setOpenModal(true)}
                         css={css`
                             width: 200px;
                         `}

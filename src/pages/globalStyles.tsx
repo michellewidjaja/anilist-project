@@ -58,27 +58,22 @@ export const CardContent = styled.div`
 `;
 
 type CardMediaProps = {
-    position?: 'top' | 'left'
+    position?: 'top' | 'left',
 }
 
 export const CardMedia = styled.div<CardMediaProps>`
     height: 100%;
-    border-radius: 8px;
+    border-radius: ${props => props.position === 'left' ? '8px 0px 0 8px' : '8px'};
+    overflow: hidden;
 
-    img:first-child {
+    img {
         object-fit: cover;
-        border-radius: 8px 0px 0 8px;
         height: 100%;
         width: 100%;
-
-        ${props => props.position === 'top' && `
-            border-radius: 8px 8px 0px 0px;
-        `}
     }
 `;
 
 type ButtonProps = {
-    outline?: Boolean,
     variant?: string
 };
 
@@ -99,21 +94,15 @@ export const Button = styled.div<ButtonProps>`
         background-color: #117476;
     }
 
-    ${props => props.outline && `
+    ${props => props.variant === 'invert' && `
         background-color: #fff;
-        border: 1px solid #1ab0b3;
         color: #1ab0b3;
+        border: 1px solid #1ab0b3;
 
         &:hover {
             background-color: #1ab0b3;
             color: #fff;
         }
-    `}
-
-    ${props => props.variant === 'invert' && `
-        background-color: #fff;
-        color: #1ab0b3;
-        border: 1px solid #1ab0b3;
     `}
 `;
 

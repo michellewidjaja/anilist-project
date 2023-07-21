@@ -7,6 +7,7 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { CollectionContainer } from './styles';
 
 import AddEditCollection from '../../components/AddEditCollection';
+import blankImage from '../../assets/blank_image.png';
 
 export default function CollectionList() {
     const getCollectionList = localStorage.getItem('collectionList') || '';
@@ -15,6 +16,7 @@ export default function CollectionList() {
     console.log('tes', parsedList);
 
     const navigate = useNavigate();
+    const totalPreviewImg = 4;
 
     const goToCollectionDetail = (key: string) => {
         navigate(`/collectionDetail?collection=${key}`)
@@ -32,19 +34,43 @@ export default function CollectionList() {
             </PageTitle>
             <CollectionContainer>
                 {Object.keys(parsedList)?.map((k: string) => {
+                    const totalItem = parsedList[k].length || 0;
+                    const showEmptyImg = totalItem ? (totalPreviewImg - totalItem) : 1;
+
                     return (
                         <Card key={k}>
-                            <CardMedia position='top' css={css`
-                                height: 170px;
-                                overflow: hidden;
+                            <CardMedia css={css`
+                                display: grid;
+                                background: #e5e5e5;
+                                grid-template-columns: repeat(${totalItem < 2 ? 1 : 2}, 1fr);
+                                height: 160px;
                             `}>
                                 {
-                                    parsedList[k]?.map((v2: any, k2: string) => (
-                                        <img src={v2.coverImage} alt="cover"
-                                            css={css`
-                                                height: 80px !important;
-                                            `} 
-                                        />
+                                    parsedList[k]?.slice(0, 4)
+                                    .map((v2: any, k2: string) => {
+                                        return (
+                                            <img key={k2} src={v2.coverImage} alt="cover"
+                                                loading="lazy"
+                                                css={css`
+                                                    width: 100%;
+                                                    height: ${totalItem < 2 ? '200px' : '80px'}!important;
+                                                    object-fit: cover;
+                                                `} 
+                                            />
+                                        )
+                                    }) 
+                                }
+                                {
+                                    showEmptyImg > 0 && 
+                                        Array(showEmptyImg).fill('')?.map((k3: string) => (
+                                            <img key={k3}src={blankImage} alt="cover"
+                                                loading="lazy"
+                                                css={css`
+                                                    width: 100%;
+                                                    height: 70%!important;
+                                                    object-fit: contain!important;
+                                                `} 
+                                            />
                                     ))
                                 }
                             </CardMedia>

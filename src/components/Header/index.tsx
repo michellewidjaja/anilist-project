@@ -11,7 +11,7 @@ export default function Header() {
     return (
         <TopHeader>
             <div onClick={() => navigate('/')}>AniList</div>
-            <Button outline onClick={() => { navigate('collection') }}>
+            <Button variant="invert" onClick={() => { navigate('collection') }}>
                 <FontAwesomeIcon icon={faBookmark} />
                 My Collection
             </Button>
