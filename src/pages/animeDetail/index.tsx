@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import AddToCollection from '../../components/AddToCollection';
+import LazyImage from '../../components/LazyImage';
 
 export default function AnimeDetail() {
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ export default function AnimeDetail() {
             </Link>
             <Card>
                 <CardContent>
-                    <img src={detail.bannerImage} alt="banner image" />
+                    <LazyImage src={detail.bannerImage} />
                     <CardTitle css={css`
                         margin-top: 20px; 
                         margin-bottom: 10px;

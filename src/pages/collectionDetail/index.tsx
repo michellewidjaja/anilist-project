@@ -5,6 +5,7 @@ import { css } from '@emotion/react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import LazyImage from '../../components/LazyImage';
 
 interface CollectionListItem {
     collectionName: string,
@@ -54,7 +55,7 @@ export default function CollectionDetail() {
                 return (
                     <Card key={k} gridColumns="30% 70%" css={css`height: 80px`}>
                         <CardMedia position="left">
-                            <img src={v.coverImage} alt="cover" loading="lazy" />
+                            <LazyImage src={v.coverImage} />
                         </CardMedia>
                         <CardContent css={css`
                             display: flex;

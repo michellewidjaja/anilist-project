@@ -7,6 +7,7 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { CollectionContainer } from './styles';
 
 import AddEditCollection from '../../components/AddEditCollection';
+import LazyImage from '../../components/LazyImage';
 import blankImage from '../../assets/blank_image.png';
 
 export default function CollectionList() {
@@ -49,8 +50,11 @@ export default function CollectionList() {
                                     parsedList[k]?.slice(0, 4)
                                     .map((v2: any, k2: string) => {
                                         return (
-                                            <img key={`listImg-${k2}`} src={v2.coverImage} alt="cover"
-                                                loading="lazy"
+                                            <LazyImage 
+                                                key={`listImg-${k2}`} 
+                                                src={v2.coverImage} 
+                                                height={totalItem < 2 ? '200px' : '80px'}
+                                                width={'100%'}
                                                 css={css`
                                                     width: 100%;
                                                     height: ${totalItem < 2 ? '200px' : '80px'}!important;
@@ -64,8 +68,10 @@ export default function CollectionList() {
                                     showEmptyImg > 0 && 
                                         Array.from(Array(showEmptyImg).keys())
                                         ?.map((k3: number) => (
-                                            <img key={`imgEmpty-${k3}`}src={blankImage} alt="cover"
-                                                loading="lazy"
+                                            <LazyImage key={`imgEmpty-${k3}`}
+                                                src={blankImage} 
+                                                height={'80px'}
+                                                width={'100%'}
                                                 css={css`
                                                     width: 100%;
                                                     height: ${totalItem < 2 ? '160px' : '80px'}!important;

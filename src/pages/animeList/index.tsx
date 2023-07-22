@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import ReactPaginate from 'react-paginate';
+import LazyImage from '../../components/LazyImage';
 
 export default function AnimeList() {
     const [currentPage, setCurrentPage] = useState(0);
@@ -52,7 +53,7 @@ export default function AnimeList() {
                     animeListMedia?.map((v: any,k: number) => (
                         <Card gridColumns="30% 70%" key={k} onClick={() => goToDetailPage(v.id)}>
                             <CardMedia position="left">
-                                <img src={v.coverImage.medium} alt="cover image" />
+                                <LazyImage src={v.coverImage.medium} />
                             </CardMedia>
                             <CardContent>
                                 <div css={css`height: 100%`}>
