@@ -65,6 +65,7 @@ export const CardMedia = styled.div<CardMediaProps>`
     height: 100%;
     border-radius: ${props => props.position === 'left' ? '8px 0px 0 8px' : '8px'};
     overflow: hidden;
+    background: #f3f3f3;
 
     img {
         object-fit: cover;

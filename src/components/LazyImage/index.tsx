@@ -1,5 +1,5 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import blankImage from '../../assets/blank_image.png';
+import blankImage from '../../assets/blank_image.jpg';
 
 export default function LazyImage(props: any) {
     return (

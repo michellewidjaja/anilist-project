@@ -8,13 +8,11 @@ import { CollectionContainer } from './styles';
 
 import AddEditCollection from '../../components/AddEditCollection';
 import LazyImage from '../../components/LazyImage';
-import blankImage from '../../assets/blank_image.png';
+import blankImage from '../../assets/blank_image.jpg';
 
 export default function CollectionList() {
     const getCollectionList = localStorage.getItem('collectionList') || '';
     const parsedList = getCollectionList ? JSON.parse(getCollectionList) : {};
-
-    console.log('tes', parsedList);
 
     const navigate = useNavigate();
     const totalPreviewImg = 4;
@@ -42,7 +40,6 @@ export default function CollectionList() {
                         <Card key={`listCollection-${k}`}>
                             <CardMedia css={css`
                                 display: grid;
-                                background: #e5e5e5;
                                 grid-template-columns: repeat(${totalItem < 2 ? 1 : 2}, 1fr);
                                 height: 160px;
                             `}>

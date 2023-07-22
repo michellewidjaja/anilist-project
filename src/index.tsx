@@ -11,15 +11,6 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
   });
 
-// var mountNode = document.getElementById("app");
-// ReactDOM.render(
-//     <ApolloProvider client={client}>
-//         <BrowserRouter>
-//             <App />
-//         </BrowserRouter>
-//     </ApolloProvider>
-// , mountNode);
-
 const root = ReactDOM.createRoot(document.getElementById("app")!);
 
 root.render(
