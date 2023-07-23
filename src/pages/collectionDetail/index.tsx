@@ -51,28 +51,36 @@ export default function CollectionDetail() {
                 Back
             </Link>
             <PageTitle>Collection {selectedCollection}</PageTitle>
-            {
-            collectionList.length > 0 ?
-            collectionList?.map((v: any, k: string) => {
-                return (
-                    <Card key={k} gridColumns="30% 70%" css={css`height: 80px`}>
-                        <CardMedia position="left">
-                            <LazyImage src={v.coverImage} />
-                        </CardMedia>
-                        <CardContent css={css`
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            flex-direction: row;
-                        `}>
-                            {v.animeTitle}
-                            <FontAwesomeIcon icon={faTrash} onClick={() => handleRemoveFromList(v)} />
-                        </CardContent>
-                    </Card>
-                )
-            }) :
-                <div>There is no collection data</div>
-            }
+            <div css={css`
+                @media (min-width: 1200px) {
+                    display: grid;
+                    grid-gap: 10px;
+                    grid-template-columns: repeat(4, 1fr);
+                }
+            `}>
+                {
+                collectionList.length > 0 ?
+                collectionList?.map((v: any, k: string) => {
+                    return (
+                        <Card key={k} gridColumns="30% 70%" css={css`height: 80px`}>
+                            <CardMedia position="left">
+                                <LazyImage src={v.coverImage} />
+                            </CardMedia>
+                            <CardContent css={css`
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                flex-direction: row;
+                            `}>
+                                {v.animeTitle}
+                                <FontAwesomeIcon icon={faTrash} onClick={() => handleRemoveFromList(v)} />
+                            </CardContent>
+                        </Card>
+                    )
+                }) :
+                    <div>There is no collection data</div>
+                }   
+            </div>
         </>
     )
 }
