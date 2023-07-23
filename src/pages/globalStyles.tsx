@@ -4,7 +4,7 @@ export const Layout = styled.div`
     width: 100%;
     min-height: 100vh;
     padding: 80px 25px 50px 25px;
-    background-color: #ecf0f1;
+    background-color: #f5f8f9;
 `;
 
 export const BadgeContainer = styled.div`
@@ -40,7 +40,7 @@ export const Card = styled.div<CardProps>`
 
     ${props => props.variant === 'gray' && `
             box-shadow: none;
-            background-color: #ecf0f1;
+            background-color: #f5f8f9;
         `
     }
 `;
@@ -54,7 +54,7 @@ export const CardTitle = styled.div`
 export const CardContent = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 12px;
+    padding: 16px;
 `;
 
 type CardMediaProps = {
@@ -129,7 +129,8 @@ export const Subtitle = styled.div`
 
 export const Link = styled.div`
     font-size: 14px;
-    color: #13898d;
+    color: #1ab0b3;
+    margin: 5px 0;
 
     svg {
         margin: 0 5px;

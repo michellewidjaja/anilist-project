@@ -50,7 +50,7 @@ export default function CollectionDetail() {
                 <FontAwesomeIcon icon={faArrowLeft} />
                 Back
             </Link>
-            <PageTitle>Collection {selectedCollection}</PageTitle>
+            <PageTitle css={css`margin: 15px 0 25px;`}>Collection {selectedCollection}</PageTitle>
             <div css={css`
                 @media (min-width: 1200px) {
                     display: grid;
