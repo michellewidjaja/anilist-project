@@ -73,7 +73,7 @@ export default function AddToCollection(props: Props) {
         }
 
         if (checkIfExistInCollection()) {
-            setMessage({ message: `Duplicate name ${collectionName}`, type: 'error'})
+            setMessage({ message: `Duplicate anime in the collection - ${collectionName}`, type: 'error'})
         } else {
             localStorage.setItem('collectionList', JSON.stringify(collection));
             setMessage({ message: `Succesfully added to ${collectionName} collection` });

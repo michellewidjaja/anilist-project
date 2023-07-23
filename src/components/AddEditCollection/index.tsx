@@ -79,7 +79,7 @@ export default function AddEditCollection(props: Props) {
         console.log('collection', collection);
 
         if (checkCollectionNameExist()) {
-            setMessage({ message: `Duplicate name ${collectionName}`, type: 'error'})
+            setMessage({ message: `Duplicate collection - ${collectionName}`, type: 'error'})
         } else {
             localStorage.setItem('collectionList', JSON.stringify(collection));
             setMessage({ message: `Succesfully added to ${collectionName} collection` });
