@@ -51,7 +51,9 @@ export default function CollectionDetail() {
                 Back
             </Link>
             <PageTitle>Collection {selectedCollection}</PageTitle>
-            {collectionList?.map((v: any, k: string) => {
+            {
+            collectionList.length > 0 ?
+            collectionList?.map((v: any, k: string) => {
                 return (
                     <Card key={k} gridColumns="30% 70%" css={css`height: 80px`}>
                         <CardMedia position="left">
@@ -68,7 +70,9 @@ export default function CollectionDetail() {
                         </CardContent>
                     </Card>
                 )
-            })}
+            }) :
+                <div>There is no collection data</div>
+            }
         </>
     )
 }

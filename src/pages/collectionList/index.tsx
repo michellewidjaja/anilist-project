@@ -4,7 +4,6 @@ import { css } from '@emotion/react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { CollectionContainer } from './styles';
 
 import AddEditCollection from '../../components/AddEditCollection';
 import LazyImage from '../../components/LazyImage';
@@ -31,8 +30,14 @@ export default function CollectionList() {
                 My Collection
                 <AddEditCollection action="add" />
             </PageTitle>
-            <CollectionContainer>
-                {Object.keys(parsedList)?.map((k: string) => {
+            <div css={css`
+                    display: grid;
+                    grid-template-columns: ${Object.keys(parsedList).length > 0 ? '1fr 1fr' : '1fr'};
+                    grid-gap: 10px;
+                `}>
+                {
+                Object.keys(parsedList).length > 0 ?
+                Object.keys(parsedList)?.map((k: string) => {
                     const totalItem = parsedList[k].length || 0;
                     const showEmptyImg = totalItem ? (totalPreviewImg - totalItem) : 1;
 
@@ -91,8 +96,10 @@ export default function CollectionList() {
                             </CardContent>
                         </Card>
                     )
-                })}
-            </CollectionContainer>
+                }) :
+                    <div>There is no collection data</div>
+                }
+            </div>
         </>
     )
 }

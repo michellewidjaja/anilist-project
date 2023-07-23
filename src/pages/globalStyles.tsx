@@ -10,7 +10,7 @@ export const Layout = styled.div`
 export const BadgeContainer = styled.div`
     display: grid;
     grid-gap: 4px;
-    grid-template-columns: repeat(4, minmax(60px, auto));
+    grid-template-columns: repeat(auto-fill, minmax(50px, auto));
     margin: 5px 0;
 `;
 
