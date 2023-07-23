@@ -129,7 +129,7 @@ export const Subtitle = styled.div`
 
 export const Link = styled.div`
     font-size: 14px;
-    color: #1ab0b3;
+    color: #13898d;
     margin: 5px 0;
 
     svg {
