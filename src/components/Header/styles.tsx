@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const TopHeader = styled.div`
     padding: 20px;
     background-color: #fff;
-    color: #13898d;
+    color: #1ab0b3;
     border-bottom: 1px solid #aeb2be;
     font-weight: 600;
     font-size: 26px;
