@@ -29,6 +29,12 @@ svg {
   font-size: 16px;
 }
 
+.img-placeholder {
+  background-size: contain!important;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .pagination {
   display: flex;
   justify-content: center;

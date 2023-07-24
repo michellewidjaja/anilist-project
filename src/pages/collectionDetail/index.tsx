@@ -77,7 +77,7 @@ export default function CollectionDetail() {
                 collectionList?.length > 0 ?
                 collectionList?.map((v: any, k: string) => {
                     return (
-                        <Card key={k} gridColumns="30% 70%" css={css`height: 80px`}>
+                        <Card key={k} gridColumns="30% 70%" css={css`height: 80px; margin: 0;`}>
                             <CardMedia position="left" onClick={() => navigate(`/detail?id=${v.animeId}`)}>
                                 <LazyImage src={v.coverImage} />
                             </CardMedia>

@@ -42,7 +42,10 @@ export default function AnimeDetail() {
             </Link>
             <Card>
                 <CardContent>
-                    <LazyImage src={detail.bannerImage} />
+                    <LazyImage src={detail.bannerImage}
+                        css={css`
+                            height: 100px;
+                        `} />
                     <CardTitle css={css`
                         margin-top: 20px; 
                         margin-bottom: 10px;

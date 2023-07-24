@@ -7,7 +7,8 @@ export default function LazyImage(props: any) {
             <LazyLoadImage 
                 width={'100%'}
                 height={'100%'}
-                alt={blankImage}
+                wrapperClassName="img-placeholder"
+                placeholderSrc={blankImage}
                 {...props} 
             />
         </>
