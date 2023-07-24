@@ -6,7 +6,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 test('renders collection detail to match snapshot', () => {
   const tree = render(
-    <MemoryRouter initialEntries={['?collection=coll-1']}>
+    <MemoryRouter initialEntries={['?collection=coll1']}>
       <CollectionDetail />
     </MemoryRouter>);
   
@@ -15,9 +15,9 @@ test('renders collection detail to match snapshot', () => {
 
 test('show collection detail successfully', () => {
   const tree = render(
-    <MemoryRouter initialEntries={['?collection=coll-1']}>
+    <MemoryRouter initialEntries={['?collection=coll1']}>
       <CollectionDetail />
     </MemoryRouter>);
   
-  expect(screen.getByText('Collection coll-1')).toBeInTheDocument();
+  expect(screen.getByText('Collection coll1')).toBeInTheDocument();
 });

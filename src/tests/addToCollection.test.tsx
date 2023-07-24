@@ -35,15 +35,15 @@ test('save to collection successfully',() => {
   const inputColl = screen.getByTestId('inputCollection');
   const btnColl = screen.getByTestId('btnSaveToCollection');
   expect(inputColl).toBeInTheDocument();
-  fireEvent.change(inputColl, { target: { value: 'coll-1' } });
+  fireEvent.change(inputColl, { target: { value: 'coll1' } });
   fireEvent.click(btnColl);
-  expect(screen.getByText('Succesfully added to coll-1 collection')).toBeInTheDocument();
+  expect(screen.getByText('Succesfully added to coll1 collection')).toBeInTheDocument();
   expect(inputColl).toHaveValue('');
 
   //save from existing collection list
-  const listColl = screen.getByText('coll-1');
+  const listColl = screen.getByText('coll1');
   fireEvent.click(listColl);
-  expect(inputColl).toHaveValue('coll-1');
+  expect(inputColl).toHaveValue('coll1');
   fireEvent.click(btnColl);
-  expect(screen.getByText('Duplicate anime in the collection - coll-1')).toBeInTheDocument();
+  expect(screen.getByText('Duplicate anime in the collection - coll1')).toBeInTheDocument();
 });

@@ -6,7 +6,7 @@ exports[`renders add edit collection component to match snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="css-8ew5lw-AddEditCollection"
+        class="css-1uqy0b5-AddEditCollection"
         data-testid="btnAddCollection"
       >
         <svg
@@ -86,7 +86,7 @@ exports[`renders add edit collection component to match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="css-1y29p4y"
+            class="css-wqooux"
             data-testid="btnSaveCollection"
           >
             Save
@@ -97,7 +97,7 @@ exports[`renders add edit collection component to match snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="css-8ew5lw-AddEditCollection"
+      class="css-1uqy0b5-AddEditCollection"
       data-testid="btnAddCollection"
     >
       <svg
@@ -177,7 +177,7 @@ exports[`renders add edit collection component to match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="css-1y29p4y"
+          class="css-wqooux"
           data-testid="btnSaveCollection"
         >
           Save

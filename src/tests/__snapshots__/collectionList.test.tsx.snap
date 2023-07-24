@@ -10,7 +10,7 @@ exports[`renders collection list to match snapshot 1`] = `
       >
         My Collection
         <div
-          class="css-8ew5lw-AddEditCollection"
+          class="css-1uqy0b5-AddEditCollection"
           data-testid="btnAddCollection"
         >
           <svg
@@ -90,7 +90,7 @@ exports[`renders collection list to match snapshot 1`] = `
               </div>
             </div>
             <div
-              class="css-1y29p4y"
+              class="css-wqooux"
               data-testid="btnSaveCollection"
             >
               Save
@@ -113,7 +113,7 @@ exports[`renders collection list to match snapshot 1`] = `
     >
       My Collection
       <div
-        class="css-8ew5lw-AddEditCollection"
+        class="css-1uqy0b5-AddEditCollection"
         data-testid="btnAddCollection"
       >
         <svg
@@ -193,7 +193,7 @@ exports[`renders collection list to match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="css-1y29p4y"
+            class="css-wqooux"
             data-testid="btnSaveCollection"
           >
             Save

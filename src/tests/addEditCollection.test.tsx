@@ -30,16 +30,16 @@ test('handle add collection successfully', () => {
   const inputColl = screen.getByTestId('inputCollectionName');
   const btnColl = screen.getByTestId('btnSaveCollection');
   expect(inputColl).toBeInTheDocument();
-  fireEvent.change(inputColl, { target: { value: 'coll-1' } });
+  fireEvent.change(inputColl, { target: { value: 'coll1' } });
   fireEvent.click(btnColl);
-  expect(screen.getByText('Succesfully added to coll-1 collection')).toBeInTheDocument();
+  expect(screen.getByText('Succesfully added to coll1 collection')).toBeInTheDocument();
   expect(inputColl).toHaveValue('');
 });
 
 test('handle edit collection successfully', () => {
   render(
     <BrowserRouter>
-      <AddEditCollection action="edit" collectionData="coll-1" />
+      <AddEditCollection action="edit" collectionData="coll1" />
     </BrowserRouter>);
 
   const editColl = screen.getByTestId('btnEditCollection');
@@ -50,5 +50,5 @@ test('handle edit collection successfully', () => {
 
   const inputColl = screen.getByTestId('inputCollectionName');
   expect(inputColl).toBeInTheDocument();
-  expect(inputColl).toHaveValue('coll-1');
+  expect(inputColl).toHaveValue('coll1');
 });

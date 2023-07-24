@@ -52,6 +52,9 @@ export default function AddEditCollection(props: Props) {
         if (collectionName === '') {
             setMessage({ message: 'Please fill in the collection name', type: 'error'});
             return false;
+        } else if (/[^a-zA-Z0-9]/.test(collectionName)) {
+            setMessage({ message: 'Field cannot contain special characters', type: 'error'});
+            return false;
         }
 
         let collection;
