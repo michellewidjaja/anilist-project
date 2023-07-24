@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import AddToCollection from '../components/AddToCollection';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom';
-import AnimeDetailMock from './mocks/AnimeDetailMock.json';
+import AnimeDetailMock from './mocks/animeDetailMock';
 
 test('renders add to collection component to match snapshot', () => {
   const tree = render(

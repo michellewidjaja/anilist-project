@@ -5,7 +5,7 @@ import { render, screen, waitFor, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom';
 import { MockedProvider } from '@apollo/client/testing';
 import { GET_ANIME_DETAIL } from '../graphql/getAnimeDetail';
-import AnimeDetailMock from './mocks/AnimeDetailMock.json';
+import AnimeDetailMock from './mocks/animeDetailMock';
 
 const mocks = [
   {

@@ -1,4 +1,4 @@
-{
+module.exports = {
     "Page": {
         "pageInfo": {
             "total": 5000,

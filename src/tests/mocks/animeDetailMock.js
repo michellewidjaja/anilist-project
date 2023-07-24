@@ -1,4 +1,4 @@
-{
+module.exports = {
     "Media": {
       "id": 1,
       "title": {
