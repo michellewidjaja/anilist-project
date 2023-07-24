@@ -75,7 +75,8 @@ export const CardMedia = styled.div<CardMediaProps>`
 `;
 
 type ButtonProps = {
-    variant?: string
+    variant?: string,
+    fullWidth?: boolean
 };
 
 export const Button = styled.div<ButtonProps>`
@@ -104,6 +105,10 @@ export const Button = styled.div<ButtonProps>`
             background-color: #1ab0b3;
             color: #fff;
         }
+    `}
+
+    ${props => props.fullWidth && `
+        width: 100%;
     `}
 `;
 

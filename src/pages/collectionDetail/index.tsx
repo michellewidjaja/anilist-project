@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardMedia,
     Link, PageTitle } from '../globalStyles';
 import { css } from '@emotion/react';
@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import LazyImage from '../../components/LazyImage';
+import ModalConfirmation from '../../components/ModalConfirmation';
 
 interface CollectionListItem {
     collectionName: string,
@@ -16,6 +17,8 @@ interface CollectionListItem {
 export default function CollectionDetail() {
     const getCollectionList = localStorage.getItem('collectionList') || '';
     const parsedList = getCollectionList ? JSON.parse(getCollectionList) : {};
+    const [showModalConfirm, setShowModalConfirm] = useState(false);
+    const [selectedData, setSelectedData] = useState<CollectionListItem>();
 
     const getQueryParams = () => {
         const { search } = useLocation();
@@ -28,20 +31,32 @@ export default function CollectionDetail() {
 
     const navigate = useNavigate();
 
-    const handleRemoveFromList = (data: CollectionListItem) => {
-        const currentCollection = parsedList[data.collectionName];
-        const index = currentCollection.findIndex((v: CollectionListItem) => v.animeId === data.animeId);
-        currentCollection.splice(index, 1);
-        
-        const newItem = {
-            ...parsedList,
-            ...(selectedCollection &&  {
-                [selectedCollection]: currentCollection
-            })
-        };
-        
-        localStorage.setItem('collectionList', JSON.stringify(newItem));
-        navigate(`/collectionDetail?collection=${selectedCollection}`)
+    const handleRemoveFromList = () => {
+        if (selectedData) {
+            const currentCollection = selectedData ? parsedList[selectedData.collectionName] : [];
+            const index = currentCollection.findIndex((v: CollectionListItem) => v.animeId === selectedData.animeId);
+            currentCollection.splice(index, 1);
+            
+            const newItem = {
+                ...parsedList,
+                ...(selectedCollection &&  {
+                    [selectedCollection]: currentCollection
+                })
+            };
+            
+            localStorage.setItem('collectionList', JSON.stringify(newItem));
+            navigate(`/collectionDetail?collection=${selectedCollection}`);
+            handleModalConfirm();
+        }
+    }
+
+    const handleModalConfirm = () => {
+        setShowModalConfirm(!showModalConfirm);
+    }
+
+    const handleData = (data: CollectionListItem) => {
+        setSelectedData(data);
+        handleModalConfirm();
     }
 
     return (
@@ -63,7 +78,7 @@ export default function CollectionDetail() {
                 collectionList?.map((v: any, k: string) => {
                     return (
                         <Card key={k} gridColumns="30% 70%" css={css`height: 80px`}>
-                            <CardMedia position="left">
+                            <CardMedia position="left" onClick={() => navigate(`/detail?id=${v.animeId}`)}>
                                 <LazyImage src={v.coverImage} />
                             </CardMedia>
                             <CardContent css={css`
@@ -73,13 +88,19 @@ export default function CollectionDetail() {
                                 flex-direction: row;
                             `}>
                                 {v.animeTitle}
-                                <FontAwesomeIcon icon={faTrash} onClick={() => handleRemoveFromList(v)} />
+                                <FontAwesomeIcon icon={faTrash} onClick={() => handleData(v)} />
                             </CardContent>
                         </Card>
                     )
                 }) :
                     <div>There is no collection data</div>
                 }   
+                <ModalConfirmation 
+                    content={`Delete ${selectedData?.animeTitle} from this collection?`}
+                    showModal={showModalConfirm}
+                    onClickConfirm={handleRemoveFromList}
+                    handleOpenModal={handleModalConfirm}
+                ></ModalConfirmation>
             </div>
         </>
     )
