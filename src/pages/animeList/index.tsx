@@ -49,9 +49,9 @@ export default function AnimeList() {
             <AnimeListContainer>
                 {
                     animeListMedia?.map((v: any,k: number) => (
-                        <Card gridColumns="30% 70%" key={k} onClick={() => goToDetailPage(v.id)}>
+                        <Card gridColumns="35% 65%" key={k} onClick={() => goToDetailPage(v.id)}>
                             <CardMedia position="left">
-                                <LazyImage src={v.coverImage.medium} />
+                                <LazyImage src={v.coverImage.large} />
                             </CardMedia>
                             <CardContent>
                                 <div css={css`height: 100%`}>
@@ -63,7 +63,7 @@ export default function AnimeList() {
                                                 <Badge key={k2}>{v2}</Badge>
                                             ))}
                                         </BadgeContainer>
-                                        <LineClamp css={css`
+                                        <LineClamp line="2" css={css`
                                             color: #606666; 
                                             margin: 10px 0; 
                                             font-size: 14px; 

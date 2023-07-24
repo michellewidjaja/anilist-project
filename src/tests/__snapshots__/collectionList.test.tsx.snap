@@ -10,7 +10,7 @@ exports[`renders collection list to match snapshot 1`] = `
       >
         My Collection
         <div
-          class="css-1uqy0b5-AddEditCollection"
+          class="css-1yk5u4g-AddEditCollection"
           data-testid="btnAddCollection"
         >
           <svg
@@ -28,14 +28,13 @@ exports[`renders collection list to match snapshot 1`] = `
               fill="currentColor"
             />
           </svg>
-          Add Collection
         </div>
         <div
           class="css-1marw79"
           data-testid="modalAddEditCollection"
         >
           <div
-            class="css-1fb2vdz"
+            class="css-8cy5fh"
           >
             <div
               class="css-4v7yup-AddEditCollection"
@@ -90,7 +89,7 @@ exports[`renders collection list to match snapshot 1`] = `
               </div>
             </div>
             <div
-              class="css-wqooux"
+              class="css-166wyjx"
               data-testid="btnSaveCollection"
             >
               Save
@@ -113,7 +112,7 @@ exports[`renders collection list to match snapshot 1`] = `
     >
       My Collection
       <div
-        class="css-1uqy0b5-AddEditCollection"
+        class="css-1yk5u4g-AddEditCollection"
         data-testid="btnAddCollection"
       >
         <svg
@@ -131,14 +130,13 @@ exports[`renders collection list to match snapshot 1`] = `
             fill="currentColor"
           />
         </svg>
-        Add Collection
       </div>
       <div
         class="css-1marw79"
         data-testid="modalAddEditCollection"
       >
         <div
-          class="css-1fb2vdz"
+          class="css-8cy5fh"
         >
           <div
             class="css-4v7yup-AddEditCollection"
@@ -193,7 +191,7 @@ exports[`renders collection list to match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="css-wqooux"
+            class="css-166wyjx"
             data-testid="btnSaveCollection"
           >
             Save

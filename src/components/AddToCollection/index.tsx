@@ -4,7 +4,7 @@ import { Card, CardContent,
     ModalContent, Button, Message, Subtitle } from '../../pages/globalStyles';
 import { css } from '@emotion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faXmark, faHeartCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 import Input from '../Input';
 
@@ -66,7 +66,7 @@ export default function AddToCollection(props: Props) {
                 collectionName: collectionName,
                 animeId: detail.id,
                 animeTitle: detail.title.romaji,
-                coverImage: detail.coverImage.medium
+                coverImage: detail.coverImage.large
             }
         ]
 
@@ -86,15 +86,14 @@ export default function AddToCollection(props: Props) {
 
     return (
         <>  
-            <Button variant="invert" onClick={() => setOpenModal(true)}
-                data-testid="btnAddToCollection"
+            <FontAwesomeIcon icon={faHeartCirclePlus} 
+                data-testid="btnAddToCollection" 
+                onClick={() => setOpenModal(true)}
                 css={css`
-                    width: 200px;
-                `}
-            > 
-                <FontAwesomeIcon icon={faPlus} />
-                Add to Collection
-            </Button>
+                    color: #e95b5b;
+                    font-size: 20px;
+                `} 
+            />
             <Modal show={openModal} data-testid="modalAddCollection">
                 <ModalContent>
                     <div css={css`text-align: right`}>

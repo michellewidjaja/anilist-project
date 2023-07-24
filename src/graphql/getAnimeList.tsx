@@ -22,14 +22,12 @@ export const GET_ANIME_LIST = gql`
                     month
                     day
                 }
-                season
                 episodes
                 coverImage {
-                    medium
+                    large
                 }
                 description
                 genres
-                isFavourite
             }
         }
     }

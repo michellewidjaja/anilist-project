@@ -70,7 +70,7 @@ export default function CollectionDetail() {
                 @media (min-width: 1200px) {
                     display: grid;
                     grid-gap: 10px;
-                    grid-template-columns: repeat(4, 1fr);
+                    grid-template-columns: repeat(2, 1fr);
                 }
             `}>
                 {

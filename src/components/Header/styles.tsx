@@ -14,4 +14,8 @@ export const TopHeader = styled.div`
     align-items: center;
     justify-content: space-between;
     max-height: 70px;
+
+    div {
+        cursor: pointer;
+    }
 `;

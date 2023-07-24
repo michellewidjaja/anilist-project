@@ -6,13 +6,13 @@ exports[`renders App successfully 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="css-1i383uj"
+        class="css-rfilhq"
       >
         <div>
           AniList
         </div>
         <div
-          class="css-5p23zz"
+          class="css-1gjuj0"
         >
           <svg
             aria-hidden="true"
@@ -33,7 +33,7 @@ exports[`renders App successfully 1`] = `
         </div>
       </div>
       <div
-        class="css-1llzy6b"
+        class="css-1ab04gf"
       >
         <p>
           Loading...
@@ -43,13 +43,13 @@ exports[`renders App successfully 1`] = `
   </body>,
   "container": <div>
     <div
-      class="css-1i383uj"
+      class="css-rfilhq"
     >
       <div>
         AniList
       </div>
       <div
-        class="css-5p23zz"
+        class="css-1gjuj0"
       >
         <svg
           aria-hidden="true"
@@ -70,7 +70,7 @@ exports[`renders App successfully 1`] = `
       </div>
     </div>
     <div
-      class="css-1llzy6b"
+      class="css-1ab04gf"
     >
       <p>
         Loading...

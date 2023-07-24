@@ -20,11 +20,10 @@ test('handle add collection successfully', () => {
     </BrowserRouter>);
 
   const addColl = screen.getByTestId('btnAddCollection');
-  const addCollText = screen.getAllByText('Add Collection');
+  const addCollText = screen.getByText('Add Collection');
   expect(addColl).toBeInTheDocument();
   fireEvent.click(addColl);
   expect(screen.getByTestId('modalAddEditCollection')).toBeInTheDocument();
-  expect(addCollText[1]).toBeInTheDocument();
 
   const inputColl = screen.getByTestId('inputCollectionName');
   const btnColl = screen.getByTestId('btnSaveCollection');

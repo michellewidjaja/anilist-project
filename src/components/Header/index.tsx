@@ -4,6 +4,7 @@ import { Button } from '../../pages/globalStyles';
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { css } from '@emotion/react'
 
 export default function Header() {
     const navigate = useNavigate();

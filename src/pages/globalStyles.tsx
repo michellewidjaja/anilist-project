@@ -5,6 +5,11 @@ export const Layout = styled.div`
     min-height: 100vh;
     padding: 80px 25px 50px 25px;
     background-color: #f5f8f9;
+
+    @media(min-width: 1200px) {
+        max-width: 800px;
+        margin: 0 auto;
+    }
 `;
 
 export const BadgeContainer = styled.div`
@@ -76,7 +81,8 @@ export const CardMedia = styled.div<CardMediaProps>`
 
 type ButtonProps = {
     variant?: string,
-    fullWidth?: boolean
+    fullWidth?: boolean,
+    small?: boolean
 };
 
 export const Button = styled.div<ButtonProps>`
@@ -90,7 +96,8 @@ export const Button = styled.div<ButtonProps>`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    margin: 5px;
+    cursor: pointer;
 
     &:hover {
         background-color: #117476;
@@ -110,11 +117,20 @@ export const Button = styled.div<ButtonProps>`
     ${props => props.fullWidth && `
         width: 100%;
     `}
+
+    ${props => props.small && `
+        padding: 2px;
+        margin: 2px;
+    `}
 `;
 
-export const LineClamp = styled.div`
+type LineClampProps = {
+    line: string
+}
+
+export const LineClamp = styled.div<LineClampProps>`
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: ${props => props.line};
     -webkit-box-orient: vertical;  
     text-overflow: ellipsis;
     overflow: hidden;
@@ -136,6 +152,7 @@ export const Link = styled.div`
     font-size: 14px;
     color: #13898d;
     margin: 5px 0;
+    cursor: pointer;
 
     svg {
         margin: 0 5px;
@@ -159,6 +176,10 @@ export const Item = styled.li`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &:last-child {
+        border: 0;
+    }
 `;
 
 type ModalProps = {
@@ -187,8 +208,9 @@ export const ModalContent = styled.div`
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; 
+    width: 90%; 
     border-radius: 8px;
+    max-width: 600px;
 `;
 
 export const InputWrapper = styled.div`

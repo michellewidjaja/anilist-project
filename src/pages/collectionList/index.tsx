@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardMedia, PageTitle } from '../globalStyles';
+import { Card, CardContent, CardMedia, PageTitle, LineClamp, Button } from '../globalStyles';
 import { css } from '@emotion/react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -90,12 +90,19 @@ export default function CollectionList() {
                             <CardContent css={css`
                                 display: flex;
                                 justify-content: space-between;
-                                flex-direction: row;
+                                flex-direction: column;
                             `}>
-                                <div css={css`font-size: 18px;`}>{k}</div>
-                                <div>
+                                <div css={css`font-size: 18px;`}>
+                                    <LineClamp line="1">{k}</LineClamp>
+                                </div>
+                                <div css={css`
+                                    display: flex;
+                                    justify-content: flex-end;
+                                `}>
                                     <AddEditCollection action="edit" collectionData={k} />
-                                    <FontAwesomeIcon icon={faEye} onClick={() => { goToCollectionDetail(k)}} />
+                                    <Button small variant="invert">
+                                        <FontAwesomeIcon icon={faEye} onClick={() => { goToCollectionDetail(k)}} />
+                                    </Button>
                                 </div>
                             </CardContent>
                         </Card>

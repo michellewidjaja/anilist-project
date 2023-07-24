@@ -94,16 +94,17 @@ export default function AddEditCollection(props: Props) {
         <>  
             {
                 isEdit ? (
-                    <FontAwesomeIcon icon={faPen} onClick={() => setOpenModal(true)} data-testid="btnEditCollection" />
+                    <Button small variant="invert" onClick={() => setOpenModal(true)} data-testid="btnEditCollection">
+                        <FontAwesomeIcon icon={faPen}  />
+                    </Button>
                 ) : (
                     <Button onClick={() => setOpenModal(true)}
                         data-testid="btnAddCollection"
                         css={css`
-                            width: 200px;
+                            width: 15%;
                         `}
                     > 
                         <FontAwesomeIcon icon={faPlus} />
-                        Add Collection
                     </Button>
                 )
             }
