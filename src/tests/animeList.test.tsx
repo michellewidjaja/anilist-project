@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import AnimeList from '../pages/animeList';
-import {render, screen, waitFor} from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom';
 import { MockedProvider } from '@apollo/client/testing';
 import { GET_ANIME_LIST } from '../graphql/getAnimeList';

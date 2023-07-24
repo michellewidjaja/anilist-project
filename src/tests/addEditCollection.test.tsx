@@ -3,7 +3,6 @@ import '@testing-library/jest-dom';
 import AddEditCollection from '../components/AddEditCollection';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom';
-import AnimeDetailMock from './mocks/animeDetailMock';
 
 test('renders add edit collection component to match snapshot', () => {
   const tree = render(
