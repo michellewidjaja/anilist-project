@@ -61,12 +61,15 @@ export default function AddEditCollection(props: Props) {
                 [collectionName] : []
             }
         } else {
-            // TODO: EDIT
             let currentData;
             if (collectionData) {
                 currentData = parsedList[collectionData];
                 delete parsedList[collectionData];
             }
+
+            currentData = currentData?.map((v: any) => {
+                return { ...v, collectionName }
+            });
 
             collection  = {
                 ...parsedList,
@@ -88,9 +91,10 @@ export default function AddEditCollection(props: Props) {
         <>  
             {
                 isEdit ? (
-                    <FontAwesomeIcon icon={faPen} onClick={() => setOpenModal(true)} />
+                    <FontAwesomeIcon icon={faPen} onClick={() => setOpenModal(true)} data-testid="btnEditCollection" />
                 ) : (
                     <Button onClick={() => setOpenModal(true)}
+                        data-testid="btnAddCollection"
                         css={css`
                             width: 200px;
                         `}
@@ -100,7 +104,7 @@ export default function AddEditCollection(props: Props) {
                     </Button>
                 )
             }
-            <Modal show={openModal}>
+            <Modal show={openModal} data-testid="modalAddEditCollection">
                 <ModalContent>
                     <div css={css`text-align: right`}>
                         <FontAwesomeIcon icon={faXmark} onClick={handleOpenModal}/>
@@ -114,12 +118,13 @@ export default function AddEditCollection(props: Props) {
                                 label="Collection Name"
                                 onChange={(e: { target: { value: string }; }) => setCollectionName(e.target.value)} 
                                 value={collectionName}
+                                data-testid="inputCollectionName"
                             />
                             { message && <Message type={message.type}>{message.message}</Message> }
                         </CardContent>
                     </Card>
                     
-                    <Button onClick={handleSaveCollection}>Save</Button>
+                    <Button onClick={handleSaveCollection} data-testid="btnSaveCollection">Save</Button>
                 </ModalContent>
             </Modal>
         </>

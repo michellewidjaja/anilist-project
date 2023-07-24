@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import AddToCollection from '../components/AddToCollection';
-import { render, screen, waitFor, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom';
 import AnimeDetailMock from './mocks/animeDetailMock';
 

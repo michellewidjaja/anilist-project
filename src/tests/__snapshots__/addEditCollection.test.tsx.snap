@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders add edit collection component to match snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="css-8ew5lw-AddEditCollection"
+        data-testid="btnAddCollection"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-plus "
+          data-icon="plus"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+            fill="currentColor"
+          />
+        </svg>
+        Add Collection
+      </div>
+      <div
+        class="css-1marw79"
+        data-testid="modalAddEditCollection"
+      >
+        <div
+          class="css-1fb2vdz"
+        >
+          <div
+            class="css-4v7yup-AddEditCollection"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-xmark "
+              data-icon="xmark"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 384 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+          <div
+            class="css-bleihu"
+          >
+            Add
+             Collection
+          </div>
+          <div
+            class="css-1wjdaps"
+          >
+            <div
+              class="css-6ovs0r"
+            >
+              <div
+                class="css-10cc1hl"
+              >
+                <div
+                  class="css-1xx0nq8"
+                >
+                  Collection Name
+                </div>
+                <input
+                  data-testid="inputCollectionName"
+                  label="Collection Name"
+                  placeholder="Collection Name"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                class="css-lhs8c9"
+              />
+            </div>
+          </div>
+          <div
+            class="css-1y29p4y"
+            data-testid="btnSaveCollection"
+          >
+            Save
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="css-8ew5lw-AddEditCollection"
+      data-testid="btnAddCollection"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-plus "
+        data-icon="plus"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+          fill="currentColor"
+        />
+      </svg>
+      Add Collection
+    </div>
+    <div
+      class="css-1marw79"
+      data-testid="modalAddEditCollection"
+    >
+      <div
+        class="css-1fb2vdz"
+      >
+        <div
+          class="css-4v7yup-AddEditCollection"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-xmark "
+            data-icon="xmark"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 384 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="css-bleihu"
+        >
+          Add
+           Collection
+        </div>
+        <div
+          class="css-1wjdaps"
+        >
+          <div
+            class="css-6ovs0r"
+          >
+            <div
+              class="css-10cc1hl"
+            >
+              <div
+                class="css-1xx0nq8"
+              >
+                Collection Name
+              </div>
+              <input
+                data-testid="inputCollectionName"
+                label="Collection Name"
+                placeholder="Collection Name"
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="css-lhs8c9"
+            />
+          </div>
+        </div>
+        <div
+          class="css-1y29p4y"
+          data-testid="btnSaveCollection"
+        >
+          Save
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

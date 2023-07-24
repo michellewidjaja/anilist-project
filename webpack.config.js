@@ -82,7 +82,13 @@ const config = {
       new CssMinimizerPlugin(),
     ],
     splitChunks: {
-      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+            name: "vendors",
+            test: /[\\/]node_modules[\\/]/,
+            chunks: "all",
+        }
+      }
     },
   },
 };
