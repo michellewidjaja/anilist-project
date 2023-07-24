@@ -37,14 +37,12 @@ export default function AnimeList() {
 
     const handlePageClick = (e: { selected: number }) => {
         setCurrentPage(e.selected + 1);
-        console.log('selected', e.selected);
     }
 
     const goToDetailPage = (id: string) => {
         navigate(`detail?id=${id}`);
     }
 
-    console.log('anime', animeList);
     return (
         <>
             <PageTitle>Anime List</PageTitle>

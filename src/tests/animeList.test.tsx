@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import AnimeList from '../pages/animeList';
-import {render, waitFor} from '@testing-library/react'
+import {render, screen, waitFor} from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom';
 import { MockedProvider } from '@apollo/client/testing';
 import { GET_ANIME_LIST } from '../graphql/getAnimeList';
@@ -22,7 +22,7 @@ const mocks = [
   }
 ];
 
-test('renders anime list successfully', async () => {
+test('renders anime list to match snapshot', async () => {
   const tree = render(
     <MockedProvider mocks={mocks}>
       <BrowserRouter>
@@ -32,5 +32,22 @@ test('renders anime list successfully', async () => {
   
   await waitFor(() => {
     expect(tree).toMatchSnapshot();
+  })
+});
+
+test('show anime list successfully', async () => {
+  render(
+    <MockedProvider mocks={mocks}>
+      <BrowserRouter>
+        <AnimeList />
+      </BrowserRouter>
+    </MockedProvider>);
+
+  expect(screen.getByText('Loading...')).toBeInTheDocument();
+
+  await waitFor(() => {
+    expect(screen.getByText('Cowboy Bebop')).toBeInTheDocument();
+    expect(screen.getByText('Cowboy Bebop: Tengoku no Tobira')).toBeInTheDocument();
+    expect(screen.getByText('TRIGUN')).toBeInTheDocument();
   })
 });

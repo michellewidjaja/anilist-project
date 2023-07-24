@@ -34,7 +34,6 @@ export default function AnimeDetail() {
 
     const detail = animeDetail?.Media;
 
-    console.log('anime detail', animeDetail);
     return (
         <>
             <Link onClick={() => navigate('/')} css={css`font-weight: 600`}>

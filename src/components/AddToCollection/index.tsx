@@ -77,7 +77,6 @@ export default function AddToCollection(props: Props) {
         } else {
             localStorage.setItem('collectionList', JSON.stringify(collection));
             setMessage({ message: `Succesfully added to ${collectionName} collection` });
-            handleOpenModal();
         }
         setCollectionName('');
     }
@@ -85,6 +84,7 @@ export default function AddToCollection(props: Props) {
     return (
         <>  
             <Button variant="invert" onClick={() => setOpenModal(true)}
+                data-testid="btnAddToCollection"
                 css={css`
                     width: 200px;
                 `}
@@ -92,7 +92,7 @@ export default function AddToCollection(props: Props) {
                 <FontAwesomeIcon icon={faPlus} />
                 Add to Collection
             </Button>
-            <Modal show={openModal}>
+            <Modal show={openModal} data-testid="modalAddCollection">
                 <ModalContent>
                     <div css={css`text-align: right`}>
                         <FontAwesomeIcon icon={faXmark} onClick={handleOpenModal}/>
@@ -106,23 +106,28 @@ export default function AddToCollection(props: Props) {
                                 label="Collection Name"
                                 onChange={(e: { target: { value: string }; }) => setCollectionName(e.target.value)} 
                                 value={collectionName}
+                                data-testid="inputCollection"
                             />
                             { message && <Message type={message.type}>{message.message}</Message> }
                         </CardContent>
                     </Card>
                     
-                    <Button onClick={handleSaveCollection}>Save</Button>
+                    <Button onClick={handleSaveCollection} data-testid="btnSaveToCollection">Save</Button>
                     <hr css={css`margin: 20px 0`} />
                     <Subtitle css={css`margin-top: 20px;`}>My Collection</Subtitle>
                     <ListItem>
-                        {Object.keys(parsedList)?.map((k3: string) => {
+                        {
+                        Object.keys(parsedList).length > 0 ?
+                        Object.keys(parsedList)?.map((k3: string) => {
                             return (
-                                <Item key={k3} onClick={() => setCollectionName(k3)}>
+                                <Item key={k3} onClick={() => setCollectionName(k3)} data-testid={k3}>
                                     {k3}
                                     <FontAwesomeIcon icon={faPlus} />
                                 </Item>
                             )
-                        })}
+                        }) : 
+                            <Item>There is no collection data</Item>
+                        }
                     </ListItem>
                 </ModalContent>
             </Modal>

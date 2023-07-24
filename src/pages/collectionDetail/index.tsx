@@ -32,14 +32,14 @@ export default function CollectionDetail() {
         const currentCollection = parsedList[data.collectionName];
         const index = currentCollection.findIndex((v: CollectionListItem) => v.animeId === data.animeId);
         currentCollection.splice(index, 1);
-        console.log('coll', currentCollection)
+        
         const newItem = {
             ...parsedList,
             ...(selectedCollection &&  {
                 [selectedCollection]: currentCollection
             })
         };
-        console.log('data', newItem);
+        
         localStorage.setItem('collectionList', JSON.stringify(newItem));
         navigate(`/collectionDetail?collection=${selectedCollection}`)
     }

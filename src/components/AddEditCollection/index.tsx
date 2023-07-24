@@ -54,8 +54,6 @@ export default function AddEditCollection(props: Props) {
             return false;
         }
 
-        console.log(checkCollectionNameExist());
-
         let collection;
         if (action === 'add') {
             collection = {
@@ -70,13 +68,11 @@ export default function AddEditCollection(props: Props) {
                 delete parsedList[collectionData];
             }
 
-            console.log(currentData);
             collection  = {
                 ...parsedList,
                 [collectionName]: currentData
             }
         }
-        console.log('collection', collection);
 
         if (checkCollectionNameExist()) {
             setMessage({ message: `Duplicate collection - ${collectionName}`, type: 'error'})
@@ -87,8 +83,6 @@ export default function AddEditCollection(props: Props) {
         }
         setCollectionName('');
     }
-
-    console.log('parsed', parsedList);
 
     return (
         <>  
