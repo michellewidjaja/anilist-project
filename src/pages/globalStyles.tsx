@@ -13,9 +13,9 @@ export const Layout = styled.div`
 `;
 
 export const BadgeContainer = styled.div`
-    display: grid;
-    grid-gap: 4px;
-    grid-template-columns: repeat(auto-fill, minmax(50px, auto));
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
     margin: 5px 0;
 `;
 
@@ -26,7 +26,7 @@ export const Badge = styled.span`
     text-align: center;
     font-size: 12px;    
     line-height: 16px;
-    padding: 1px;
+    padding: 2px 5px;
 `;
 
 type CardProps = {
